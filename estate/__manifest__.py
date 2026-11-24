@@ -7,5 +7,10 @@
     "depends": [
         "crm",
     ],
-    "data": []
+    "data": [
+        "security/res_groups.xml"
+    ],
+    "demo": [
+        "demo/estate.xml",
+    ]
 }
