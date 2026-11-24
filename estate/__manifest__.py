@@ -8,9 +8,10 @@
         "crm",
     ],
     "data": [
-        "security/res_groups.xml"
+        "security/res_groups.xml",
+        "security/ir.model.access.csv",
     ],
     "demo": [
-        "demo/estate.xml",
+        "demo/demo.xml",
     ]
 }
