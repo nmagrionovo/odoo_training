@@ -1,4 +1,59 @@
 <odoo>
+    <record id="estate_property_form_view" model="ir.ui.view">
+        <field name="name">estate.property.view.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string = "Description">
+                            <group>
+                                <field name="description"/>
+
+                                <field name="bedrooms"/>
+                                <field name="living_area"/>
+                                <field name="garage"/>
+                                <field name="garden"/>
+                                <field name="garden_area"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_property_list_view" model="ir.ui.view">
+        <field name="name">estate.property.view.list</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="postcode" width="120px"/>
+                <field name="bedrooms" width="100px"/>
+                <field name="living_area" width="110px"/>
+                <field name="expected_price" width="150px"/>
+                <field name="selling_price" width="150px"/>
+                <field name="date_availability" width="150px"/>
+            </list>
+        </field>
+    </record>
+
     <record id="test_record" model="ir.actions.act_window">
         <field name="name">Test</field>
         <field name="res_model">estate.property</field>
