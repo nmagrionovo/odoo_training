@@ -4,6 +4,9 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form>
+                 <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
                 <sheet>
                     <group>
                         <h1>
@@ -38,6 +41,26 @@
         </field>
     </record>
 
+    <record id="estate_property_search_view" model="ir.ui.view">
+        <field name="name">estate.property.view.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Filtrii">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="facades"/>
+                <filter name="filter_available_properties" string="Immobili disponibili" domain="[('state', 'in', ['new', 'received'])]"/>
+                <separator/>
+                <filter name="filter_new_state" string="New Properties" domain="[('state', '=', 'new')]"/>
+                <filter name="filter_received_state" string="Offer Received" domain="[('state', '=', 'received')]"/>
+                <filter name="group_by_postcode" string="Postcode" context="{'group_by':'postcode'}"/>
+            </search>
+        </field>
+    </record>
+
     <record id="estate_property_list_view" model="ir.ui.view">
         <field name="name">estate.property.view.list</field>
         <field name="model">estate.property</field>
@@ -55,7 +78,7 @@
     </record>
 
     <record id="test_record" model="ir.actions.act_window">
-        <field name="name">Test</field>
+        <field name="name">Real estate Soluzioni</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">list,form</field>
     </record>
